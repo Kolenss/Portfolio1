@@ -63,9 +63,11 @@ export default function Contact() {
             onChange={handleChange}
             className="p-[5px] border rounded-[5px] w-9/10 min-h-[140px]"
           />
-          <button type="submit" className="bg-black text-white p-[10px] rounded-[5px] cursor-pointer">
-            Get in Touch
-          </button>
+          <div className=" w-9/10 flex justify-start">
+            <button type="submit" className="bg-black text-white p-[10px] rounded-[5px] cursor-pointer">
+              Get in Touch
+            </button>
+          </div>
         </form>
         {status && <p className="mt-2">{status}</p>}
         <div className="md:flex md:flex-row w-9/10 md:w-9/10 mt-5">
