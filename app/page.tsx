@@ -1,3 +1,4 @@
+'use client'
 import Header from "@/components/header";
 import clipArt from "../assets/clipart.jpg"
 import Image from "next/image";
@@ -15,11 +16,17 @@ import linkedin from '../assets/linkedin.png'
 import facebook from '../assets/Facebook.png'
 import instagram from '../assets/instagram.png'
 import github from '../assets/github.png'
+import { useState } from "react";
+import SideBar from '../components/sidebar.js'
 
 export default function Home() {
+
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="">
-      <Header/>
+      <SideBar open={open} handleClose={ () => setOpen(false) }/>
+      <Header setOpen={ () => setOpen(true)}/>
       <main className=" w-screen pt-[60px] md:pt-[80px] gap-[15px] flex gap-[60px] flex-col justify-center items-center justify-center">
           <div className="md:max-h-[800px] mx-auto w-9/10 gap-[30px] flex flex-col p-[15px] md:px-[50px] md:flex-row-reverse md:w-full justify-center items-center" > 
             <div className=" w-1/2 min-w-[320px] max-w-[600px]">
