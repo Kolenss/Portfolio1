@@ -10,6 +10,9 @@ export default async function handler(req, res) {
   if (!fname || !email || !message) {
     return res.status(400).json({ message: "Missing required fields" });
   }
+  
+  console.log("SMTP_EMAIL:", process.env.SMTP_EMAIL);
+  console.log("SMTP_PASSWORD:", process.env.SMTP_PASSWORD ? "****" : "MISSING");
 
   // create transporter
   const transporter = nodemailer.createTransport({
@@ -47,4 +50,6 @@ export default async function handler(req, res) {
     console.error(error);
     return res.status(500).json({ message: "Error sending email" });
   }
+
+
 }
