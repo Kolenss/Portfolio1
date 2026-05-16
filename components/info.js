@@ -9,7 +9,7 @@ export default function Info(){
             <a className="font-sans flex-wrap: wrap"> Hello I am </a> { <Bold boldText={' Chip Collins.'}/> } 
           </div>
           <div className="leading-normal">
-            { <Bold boldText={'Frontend'}/> } <a className="font-extrabold text-outline-black"> Developer</a>
+            { <Bold boldText={'Fullstack'}/> } <a className="font-extrabold text-outline-black"> Developer</a>
           </div>
           <div className="leading-normal">
             <a className="font-sans">Based in </a>  { <Bold boldText={'Philippines.'}/> }

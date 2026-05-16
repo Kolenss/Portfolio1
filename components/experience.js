@@ -7,7 +7,11 @@ export default function Experience(){
                 <Bold boldText={ 'My Experiences' }/>
             </div>
             <div className='w-[280px] md:w-1/2 md:py-[30px] border rounded-[5px] p-[20px] g-6 border-amber-100 text-start text-[25px]'>
-                <Bold boldText={'Right Apps Inc.'}/> <br/><br/>
+                <Bold boldText={'OneTouch Networks - Intern'}/> <br/><br/>
+                <a className="text-[20px]"> Developed intelligent AI voice agents using OpenAI Agents SDK and LLMs to deliver natural conversational experiences. Architected full-stack solutions connecting frontend interfaces, backend APIs, and AI services for seamless voice-based automation systems </a>
+            </div>
+            <div className='w-[280px] md:w-1/2 md:py-[30px] border rounded-[5px] p-[20px] g-6 border-amber-100 text-start text-[25px]'>
+                <Bold boldText={'Right Apps Inc. - Intern'}/> <br/><br/>
                 <a className="text-[20px]"> Worked on frontend UI development using Next.js, focusing on
                                 consistent light/dark themes, reusable components, user-friendly input
                                 fields, and clear dashboard navigation </a>

@@ -13,9 +13,13 @@ export default function Aboutme(){
                     <Bold boldText={' Me'}/>
                 </div>
                 <div className="p-[10px] md:text-[20px] text-zinc-600 dark:text-zinc-300 font-sans">
-                <a className="">Hi! I’m Collins Maglasang, a computer engineering student who enjoys creating apps and exploring new technologies. Most of my projects so far have focused on frontend development, and I love building clean, interactive interfaces that are easy for people to use.
-                            Recently, through our capstone project, I’ve been learning more about connecting hardware with software — working with Bluetooth devices and moving data between sensors and apps. It’s been exciting to see how the app interacts with real-world devices and how the frontend connects with live data. I enjoy tackling these challenges, experimenting with new technologies, and learning as I go.
-                            Outside of coding, I like staying active and exploring hobbies that keep me creative and energized. My goal is to keep growing as a developer, build projects I’m proud of, and keep learning new ways to make apps both functional and user-friendly.</a>
+                <a className="">Hi! I’m Collins Maglasang, a Computer Engineering graduate who enjoys creating apps and exploring new technologies. Most of my projects and experience so far have focused on frontend development, and I enjoy building clean, interactive interfaces that are easy for people to use.
+                    <br></br><br></br>
+                        Through my capstone project and internships, I gained experience connecting hardware with software — working with Bluetooth devices, sensors, and real-time data integration between applications and embedded systems. I also completed internships in web development and AI engineering, where I worked with modern development tools and software technologies. I enjoy tackling technical challenges, experimenting with new technologies, and continuously learning as I build projects.
+                    <br></br><br></br>
+                        Outside of coding, I like staying active and exploring hobbies that keep me creative and energized. My goal is to continue growing as a software developer and AI engineer, build projects I’m proud of, and create applications that are both functional and user-friendly.
+
+                    </a>
                 </div>
                 </div>
             </div>
