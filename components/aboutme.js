@@ -1,12 +1,15 @@
 import Image from "next/image";
-import clipart2 from '../assets/clipart2.jpg'
+import barong from '../assets/barong.png'
+import formal from '../assets/formal.png'
 import Bold from "./boldText";
 
 
 export default function Aboutme(){
     return(
         <div className=" flex flex-col justify-center items-center p-[15px] gap-[20px] md:flex-row md:w-3/4"> 
-            <Image src={ clipart2 } alt="clip art 2" width={ 700 }/>
+            <div className="rounded-3xl overflow-hidden p-4 bg-gray-100 dark:bg-gray-800">
+                <Image src={ formal } alt="formal photo" width={ 700 } className="rounded-2xl"/>
+            </div>
             <div className=" w-9/10 ">
                 <div className="flex flex-row text-[35px] md:text-[60px] items-center justify-center gap-[10px]">                
                     <h1 className=" font-extrabold text-outline-black">About </h1> 

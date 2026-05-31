@@ -18,6 +18,7 @@ import instagram from '../assets/instagram.png'
 import github from '../assets/github.png'
 import { useState } from "react";
 import SideBar from '../components/sidebar.js'
+import barong from '../assets/barong.png'
 
 export default function Home() {
 
@@ -29,8 +30,9 @@ export default function Home() {
       <Header setOpen={ () => setOpen(true)}/>
       <main className=" w-screen pt-[60px] md:pt-[80px] gap-[15px] flex gap-[60px] flex-col justify-center items-center justify-center">
           <div className="md:max-h-[800px] mx-auto w-9/10 gap-[30px] flex flex-col p-[15px] md:px-[50px] md:flex-row-reverse md:w-full justify-center items-center" > 
-            <div className=" w-1/2 min-w-[320px] max-w-[600px]">
-              <Image src={ clipArt } alt="clip art image" /> 
+            
+            <div className="rounded-3xl overflow-hidden p-4 bg-gray-100 dark:bg-gray-800">
+                <Image src={ barong } alt="barong photo" width={ 400 } className="rounded-2xl"/>
             </div>
             <div className=" max-w-[500px] flex flex-col gap-[50px] justify-center md:w-1/2">
               <Info/>
