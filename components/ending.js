@@ -1,22 +1,23 @@
-import Image from "next/image";
-import Bold from "./boldText";
 import Link from "next/link";
 
-export default function Ending(){
-    return(
-        <div className="flex flex-col h-auto p-[15px] py-[25px] gap-[40px] md:justify-center">
-            <div className="text-[35px] md:text-[45px]">
-                <Bold boldText={`Let's `}/>
-                <a className="font-extrabold text-outline-black">Talk</a>
-                <Bold boldText={' For Something Special'}/>
-            </div>
-            <div>
-                <a className="text-zinc-400 dark:text-zinc-300 text-[20px]">I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.</a>
-            </div>
-            <div className="font-extrabold text-[20px]">
-                <Link href={ 'https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRwQnfPvwHRWhRhvNxvKkJdTTmsMhWSXWMrjfhFBrmMVhpzjhqKjRxWRdPmcFCPGJtXgGrZB' } target="blank">collinsgt12374@gmail.com</Link><br/>
-                <a>09398975547</a>
-            </div>
-        </div>
-    );
+export default function Ending() {
+  return (
+    <div className="rounded-2xl border border-[var(--line)] bg-white p-6 md:p-8">
+      <h2 className="text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
+        Let&apos;s Talk For Something Special
+      </h2>
+      <p className="mt-5 text-base leading-8 text-neutral-700">
+        I seek to push the limits of creativity to create high-engaging, user-friendly,
+        and memorable interactive experiences.
+      </p>
+      <div className="mt-8 grid gap-2 text-base font-semibold text-neutral-950">
+        <Link className="transition hover:text-[var(--muted)]" href="mailto:collinsgt12374@gmail.com">
+          collinsgt12374@gmail.com
+        </Link>
+        <Link className="transition hover:text-[var(--muted)]" href="tel:+639398975547">
+          09398975547
+        </Link>
+      </div>
+    </div>
+  );
 }

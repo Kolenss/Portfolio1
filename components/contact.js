@@ -1,10 +1,18 @@
-'use client'
+"use client";
+
 import { useState } from "react";
-import ContactCard from '../components/contactcard.js';
-import linkedin from '../assets/linkedin.png';
-import facebook from '../assets/Facebook.png';
-import instagram from '../assets/instagram.png';
-import github from '../assets/github.png';
+import ContactCard from "../components/contactcard.js";
+import linkedin from "../assets/linkedin.png";
+import facebook from "../assets/Facebook.png";
+import instagram from "../assets/instagram.png";
+import github from "../assets/github.png";
+
+const socialLinks = [
+  ["LinkedIn", linkedin, "https://www.linkedin.com/in/maglasang-chip-collins-100466369/"],
+  ["Facebook", facebook, "https://www.facebook.com/Chip.Collins.M/"],
+  ["Instagram", instagram, "https://www.instagram.com/chip.maglasang/"],
+  ["GitHub", github, "https://github.com/Kolenss"],
+];
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -38,46 +46,79 @@ export default function Contact() {
       } else {
         setStatus(data.message || "Failed to send message.");
       }
-    } 
-    catch (err) {
+    } catch (err) {
       console.error(err);
       setStatus("Error sending message.");
     }
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center text-center gap-5">
-      <a className="font-extrabold text-[35px]">Contact Me</a>
-      <div className="font-sans w-full flex flex-col items-center justify-center">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-y-5 justify-center items-center text-center w-full"
-        >
-          <input placeholder="First Name" name="fname" value={form.fname} onChange={handleChange} className="border rounded-[5px] p-[5px] w-9/10 min-h-14" />
-          <input placeholder="Email" name="email" value={form.email} onChange={handleChange} className="border rounded-[5px] p-[5px] w-9/10 min-h-14"/>
-          <input placeholder="Your Website(if exists)" name="website" value={form.website} onChange={handleChange} className="border rounded-[5px] p-[5px] w-9/10 min-h-14"/>
+    <div className="w-full">
+      <h2 className="text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
+        Contact Me
+      </h2>
+      <p className="mt-4 max-w-xl text-base leading-7 text-[var(--muted)]">
+        Send a short message and I will get back to you when I can.
+      </p>
+
+      <form onSubmit={handleSubmit} noValidate className="mt-8 grid gap-4">
+        <label className="grid gap-2 text-sm font-medium text-neutral-800" htmlFor="fname">
+          First Name
+          <input
+            id="fname"
+            name="fname"
+            value={form.fname}
+            onChange={handleChange}
+            className="min-h-12 rounded-xl border border-[var(--line)] bg-white px-4 text-base font-normal text-neutral-950 transition focus:border-neutral-950"
+          />
+        </label>
+        <label className="grid gap-2 text-sm font-medium text-neutral-800" htmlFor="email">
+          Email
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            className="min-h-12 rounded-xl border border-[var(--line)] bg-white px-4 text-base font-normal text-neutral-950 transition focus:border-neutral-950"
+          />
+        </label>
+        <label className="grid gap-2 text-sm font-medium text-neutral-800" htmlFor="website">
+          Website
+          <input
+            id="website"
+            name="website"
+            value={form.website}
+            onChange={handleChange}
+            className="min-h-12 rounded-xl border border-[var(--line)] bg-white px-4 text-base font-normal text-neutral-950 transition focus:border-neutral-950"
+          />
+        </label>
+        <label className="grid gap-2 text-sm font-medium text-neutral-800" htmlFor="message">
+          Message
           <textarea
-            placeholder="How can I help?"
+            id="message"
             name="message"
             value={form.message}
             onChange={handleChange}
-            className="p-[5px] border rounded-[5px] w-9/10 min-h-[140px]"
+            className="min-h-36 rounded-xl border border-[var(--line)] bg-white px-4 py-3 text-base font-normal text-neutral-950 transition focus:border-neutral-950"
           />
-          <div className=" w-9/10 flex justify-start">
-            <button type="submit" className="bg-black text-white p-[10px] rounded-[5px] cursor-pointer">
-              Get in Touch
-            </button>
-          </div>
-        </form>
-        {status && <p className="mt-2">{status}</p>}
-        <div className="md:flex md:flex-row w-9/10 md:w-9/10 mt-5">
-          <div className="flex flex-row gap-[25px] w-full justify-start p-[20px]">
-            <ContactCard contactimg={linkedin} contactlink="https://www.linkedin.com/in/maglasang-chip-collins-100466369/" />
-            <ContactCard contactimg={facebook} contactlink="https://www.facebook.com/Chip.Collins.M/" />
-            <ContactCard contactimg={instagram} contactlink="https://www.instagram.com/chip.maglasang/" />
-            <ContactCard contactimg={github} contactlink="https://github.com/Kolenss" />
-          </div>
+        </label>
+
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <button
+            type="submit"
+            className="inline-flex w-full justify-center rounded-full border border-neutral-950 bg-neutral-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-transparent hover:text-neutral-950 sm:w-auto"
+          >
+            Get in Touch
+          </button>
+          {status && <p className="text-sm text-[var(--muted)]">{status}</p>}
         </div>
+      </form>
+
+      <div className="mt-8 flex gap-3">
+        {socialLinks.map(([label, icon, link]) => (
+          <ContactCard key={label} label={label} contactimg={icon} contactlink={link} />
+        ))}
       </div>
     </div>
   );

@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ContactCard({ contactimg, contactlink }){
-    return(
-        <div className="dark:bg-white w-[50px] h-[50px] border border-[2px] rounded-[10px] p-[5px]">
-            <Link href={ `${contactlink}` } target="blank">
-                <Image src={ contactimg } alt="contactimg"/>
-            </Link>
-        </div>
-    );
+export default function ContactCard({ contactimg, contactlink, label = "Social profile" }) {
+  return (
+    <Link
+      href={contactlink}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-white p-2.5 transition hover:-translate-y-0.5 hover:border-neutral-950"
+    >
+      <Image src={contactimg} alt="" aria-hidden="true" />
+    </Link>
+  );
 }

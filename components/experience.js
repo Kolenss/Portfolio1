@@ -1,21 +1,42 @@
-import Bold from './boldText'
+const experiences = [
+  {
+    role: "AI Engineering Intern",
+    company: "OneTouch Networks",
+    description:
+      "Developed intelligent AI voice agents using OpenAI Agents SDK and LLMs to deliver natural conversational experiences. Architected full-stack solutions connecting frontend interfaces, backend APIs, and AI services for seamless voice-based automation systems.",
+  },
+  {
+    role: "Frontend Development Intern",
+    company: "Right Apps Inc.",
+    description:
+      "Worked on frontend UI development using Next.js, focusing on consistent light/dark themes, reusable components, user-friendly input fields, and clear dashboard navigation.",
+  },
+];
 
-export default function Experience(){
-    return(
-        <div className="w-full bg-black text-white flex flex-col justify-center items-center p-[20px] md:py-[50px] md:gap-[40px] text-center"> 
-            <div className='text-3xl p-[15px] md:text-[40px]'>
-                <Bold boldText={ 'My Experiences' }/>
+export default function Experience() {
+  return (
+    <div className="mx-auto w-full max-w-6xl px-5">
+      <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <h2 className="text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
+          Experience
+        </h2>
+        <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
+          Internship work across AI engineering, frontend development, and full-stack
+          product implementation.
+        </p>
+      </div>
+
+      <div className="divide-y divide-[var(--line)] rounded-2xl border border-[var(--line)] bg-white">
+        {experiences.map((item) => (
+          <article key={item.company} className="grid gap-4 p-6 md:grid-cols-[240px_1fr] md:p-8">
+            <div>
+              <p className="text-sm font-semibold text-neutral-950">{item.company}</p>
+              <p className="mt-1 text-sm text-[var(--muted)]">{item.role}</p>
             </div>
-            <div className='w-[280px] md:w-1/2 md:py-[30px] border rounded-[5px] p-[20px] g-6 border-amber-100 text-start text-[25px]'>
-                <Bold boldText={'OneTouch Networks - Intern'}/> <br/><br/>
-                <a className="text-[20px]"> Developed intelligent AI voice agents using OpenAI Agents SDK and LLMs to deliver natural conversational experiences. Architected full-stack solutions connecting frontend interfaces, backend APIs, and AI services for seamless voice-based automation systems </a>
-            </div>
-            <div className='w-[280px] md:w-1/2 md:py-[30px] border rounded-[5px] p-[20px] g-6 border-amber-100 text-start text-[25px]'>
-                <Bold boldText={'Right Apps Inc. - Intern'}/> <br/><br/>
-                <a className="text-[20px]"> Worked on frontend UI development using Next.js, focusing on
-                                consistent light/dark themes, reusable components, user-friendly input
-                                fields, and clear dashboard navigation </a>
-            </div>
-            </div>
-    );
+            <p className="text-base leading-8 text-neutral-700">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
 }

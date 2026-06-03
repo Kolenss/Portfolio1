@@ -1,33 +1,43 @@
+import c from "../assets/c.png";
+import html from "../assets/html.png";
+import css from "../assets/css.png";
+import js from "../assets/js.png";
+import cp from "../assets/c++.png";
+import nextjs from "../assets/next-js.png";
+import tailwind from "../assets/tailwind.png";
+import react from "../assets/react.png";
+import ts from "../assets/typescript.png";
+import Languagecard from "@/components/languageCard";
 
-import Image from 'next/image';
-import c from '../assets/c.png'
-import html from '../assets/html.png'
-import css from '../assets/css.png'
-import js from '../assets/js.png'
-import cp from '../assets/c++.png'
-import nextjs from '../assets/next-js.png'
-import tailwind from '../assets/tailwind.png'
-import react from '../assets/react.png'
-import ts from '../assets/typescript.png'
+const skills = [
+  ["HTML", html],
+  ["CSS", css],
+  ["JavaScript", js],
+  ["C", c],
+  ["C++", cp],
+  ["Next.js", nextjs],
+  ["Tailwind CSS", tailwind],
+  ["React", react],
+  ["TypeScript", ts],
+];
 
-import Languagecard from '@/components/languageCard'
-
-
-export default function Languages(){
-    return(
-        <div className='flex flex-col justify-center items-center gap-[20px]'>
-            <h1 className='text-[50px] font-extrabold'>My Skills</h1>
-            <div className='w-full grid grid-cols-2 md:grid-cols-5 md:gap-[50px] md:gap-x-[90px] justify-items-center px-[25px] gap-6'>
-                <Languagecard language={ 'HTML' } languageimg={ html }/>
-                <Languagecard language={ 'CSS' } languageimg={ css }/>
-                <Languagecard language={ 'Javascript' } languageimg={ js }/>
-                <Languagecard language={ 'C' } languageimg={ c }/>
-                <Languagecard language={ 'C++' } languageimg={ cp }/>
-                <Languagecard language={ 'Next.js' } languageimg={ nextjs }/>
-                <Languagecard language={ 'Tailwind Css' } languageimg={ tailwind }/>
-                <Languagecard language={ 'React' } languageimg={ react }/>
-                <Languagecard language={ 'Typescript' } languageimg={ ts }/>
-            </div>
-        </div>
-    );
+export default function Languages() {
+  return (
+    <div className="mx-auto w-full max-w-6xl px-5">
+      <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <h2 className="text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
+          Skills
+        </h2>
+        <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
+          Tools and languages I use across frontend, web application, and engineering
+          projects.
+        </p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {skills.map(([language, image]) => (
+          <Languagecard key={language} language={language} languageimg={image} />
+        ))}
+      </div>
+    </div>
+  );
 }

@@ -1,20 +1,28 @@
-import Projectcard from '@/components/projectcard'
+import Projectcard from "@/components/projectcard";
 import { projects } from "../assets/descriptions.js";
 
-
-export default function Projects(){
-    return(
-        <div className="flex flex-col justify-center items-center py-[30px] p-[15px] gap-[20px] w-full md:w-full bg-black md:py-[50px]">    
-            <h1 className="font-extrabold text-white text-[35px] md:text-[50px]">My Projects</h1> 
-            {projects.map((proj, index) => (
-                <Projectcard 
-                    key={index}
-                    title={proj.title}
-                    projectimg={proj.image}
-                    projectdesc={proj.description}
-                />
-            ))}
-            
-        </div>
-        );
+export default function Projects() {
+  return (
+    <div className="mx-auto w-full max-w-6xl px-5">
+      <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <h2 className="text-3xl font-semibold tracking-tight text-neutral-950 md:text-4xl">
+          Projects
+        </h2>
+        <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
+          Practical work that connects interfaces, data, hardware, and user-facing
+          software.
+        </p>
+      </div>
+      <div className="grid gap-5">
+        {projects.map((proj) => (
+          <Projectcard
+            key={proj.title}
+            title={proj.title}
+            projectimg={proj.image}
+            projectdesc={proj.description}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }

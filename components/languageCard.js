@@ -1,15 +1,12 @@
 import Image from "next/image";
 
-
-export default function Languagecard({ language, languageimg }){
-    return(
-        <div className="cursor-pointer w-[150px] h-[160px] flex flex-col justify-center items-center border rounded-[10px] py-[10px] gap-[5px]">
-            <div className="h-3/4">
-                <Image src={ languageimg } alt={ language } className="" width={ 100 }/>
-            </div>
-            <div className=" flex-1 w-full text-center font-extrabold ">
-                { language }
-            </div>
-        </div>
-    );
+export default function Languagecard({ language, languageimg }) {
+  return (
+    <div className="flex min-h-24 items-center gap-4 rounded-xl border border-[var(--line)] bg-white p-4">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--background)] p-2">
+        <Image src={languageimg} alt="" aria-hidden="true" width={28} height={28} />
+      </div>
+      <span className="text-sm font-semibold text-neutral-900">{language}</span>
+    </div>
+  );
 }
