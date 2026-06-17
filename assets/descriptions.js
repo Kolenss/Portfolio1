@@ -18,7 +18,7 @@ export const projects = [
     {
         title: "Capstone Project",
         images: [avocado, avocado2, avocado3, avocado4],
-        description: "Avocado is a smart app that connects with Bluetooth devices to receive and display real-time sensor data. I worked on the frontend and helped integrate the Bluetooth connection, making the app interactive and user-friendly. This project gave me hands-on experience with hardware-software interaction and live data handling."
+        description: "Avocado is a smart application that connects with Bluetooth devices to receive and display real-time sensor data. I developed the full stack of the application, from the user interface to the Bluetooth integration, ensuring a seamless and interactive experience. This project provided hands-on experience with hardware-software interaction, live data handling, and end-to-end application development."
     },
     {
         title: "BlunchQT",
