@@ -14,56 +14,69 @@ export default function Projectcard({ title, images, projectimg, projectdesc }) 
     <article className="grid overflow-hidden rounded-2xl border border-[var(--line)] bg-white md:grid-cols-[0.9fr_1.1fr]">
       <div className="relative bg-[var(--background)] p-4">
         <div className="relative overflow-hidden rounded-xl">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {allImages.map((img, i) => (
-              <div key={i} className="relative aspect-[3/2] w-full flex-shrink-0">
-                <Image
-                  src={img}
-                  alt={`${title} preview ${i + 1}`}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            ))}
-          </div>
-
-          {allImages.length > 1 && (
+          {allImages.length > 0 ? (
             <>
-              <button
-                onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
-                aria-label="Previous image"
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${current * 100}%)` }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button
-                onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
-                aria-label="Next image"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-
-              <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
-                {allImages.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`h-2 w-2 rounded-full transition-all ${
-                      i === current ? "bg-white scale-110" : "bg-white/50"
-                    }`}
-                    aria-label={`Go to image ${i + 1}`}
-                  />
+                {allImages.map((img, i) => (
+                  <div key={i} className="relative aspect-[3/2] w-full flex-shrink-0">
+                    <Image
+                      src={img}
+                      alt={`${title} preview ${i + 1}`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 ))}
               </div>
+
+              {allImages.length > 1 && (
+                <>
+                  <button
+                    onClick={prev}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+                    aria-label="Previous image"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={next}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+                    aria-label="Next image"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </button>
+
+                  <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+                    {allImages.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        className={`h-2 w-2 rounded-full transition-all ${
+                          i === current ? "bg-white scale-110" : "bg-white/50"
+                        }`}
+                        aria-label={`Go to image ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </>
+          ) : (
+            <div className="flex aspect-[3/2] w-full flex-col items-center justify-center gap-3 rounded-xl bg-neutral-100">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-400">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span className="text-sm font-medium text-neutral-400">Confidential Client Project</span>
+            </div>
           )}
         </div>
       </div>

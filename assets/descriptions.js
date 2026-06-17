@@ -30,4 +30,9 @@ export const projects = [
         images: [ctusportshub1, ctusportshub2, ctusportshub3, ctusportshub4, ctusportshub5],
         description: "CTU SportsHub is a sports management system built for CTU Danao to organize and track tournaments. It features tournament creation with single elimination brackets, live scoring, team management, and game scheduling. This project streamlined the school's sports event management and gave me experience building real-time data-driven applications."
     },
+    {
+        title: "AILEEN – Outbound Caller Platform",
+        images: [],
+        description: "AILEEN is an AI-powered outbound calling and lead generation platform built for a financial advisory firm. The application features a Small Business Hunter that sources leads from Google Maps, automated retrieval and classification of Department of Labor Form 5500 filings to identify underperforming retirement plans, and an integrated calling dashboard powered by Twilio to connect advisors with prospective clients. Built with Vite and Python, the platform streamlines the full prospecting pipeline — from lead discovery to outreach — enabling advisors to efficiently grow their client base."
+    },
 ]
