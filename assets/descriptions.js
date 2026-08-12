@@ -35,4 +35,9 @@ export const projects = [
         images: [],
         description: "AILEEN is an AI-powered outbound calling and lead generation platform built for a financial advisory firm. The application features a Small Business Hunter that sources leads from Google Maps, automated retrieval and classification of Department of Labor Form 5500 filings to identify underperforming retirement plans, and an integrated calling dashboard powered by Twilio to connect advisors with prospective clients. Built with Vite and Python, the platform streamlines the full prospecting pipeline — from lead discovery to outreach — enabling advisors to efficiently grow their client base."
     },
+    {
+        title: "OneTouch CRM – AI-Powered Salesforce Replacement",
+        images: [],
+        description: "OneTouch CRM is a self-hosted, AI-first CRM built on Twenty, the open-source alternative to Salesforce, developed to replace the company's Salesforce subscription. It manages companies, contacts, and deal pipelines with contract files, notes, and automated 90/60/30-day renewal reminders, plus Microsoft 365 email, calendar, and single sign-on. At its center is Sarah, the OneTouch AI assistant, which answers questions from live CRM data and drafts renewal emails and proposals — with human approval required before anything reaches a client. I built the role-based access control, in-app notifications and record sharing, team group chat with multiple assignees, and record search and duplication, along with the Docker and Railway deployment setup. Built with React, TypeScript, NestJS, GraphQL, PostgreSQL, and Redis."
+    },
 ]
