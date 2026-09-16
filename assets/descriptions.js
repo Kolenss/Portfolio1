@@ -16,7 +16,27 @@ import ctusportshub5 from './s5.jpg'
 
 export const projects = [
     {
-        title: "Capstone Project",
+        title: "AILEEN – Outbound Caller Platform",
+        images: [],
+        description: "AILEEN is an AI-powered outbound calling and lead generation platform built for a financial advisory firm. The application features a Small Business Hunter that sources leads from Google Maps, automated retrieval and classification of Department of Labor Form 5500 filings to identify underperforming retirement plans, and an integrated calling dashboard powered by Twilio to connect advisors with prospective clients. Built with Vite and Python, the platform streamlines the full prospecting pipeline — from lead discovery to outreach — enabling advisors to efficiently grow their client base."
+    },
+    {
+        title: "OneTouch CRM – AI-Powered Salesforce Replacement",
+        images: [],
+        description: "OneTouch CRM is a self-hosted, AI-first CRM built on Twenty, the open-source alternative to Salesforce, developed to replace the company's Salesforce subscription. It manages companies, contacts, and deal pipelines with contract files, notes, and automated 90/60/30-day renewal reminders, plus Microsoft 365 email, calendar, and single sign-on. At its center is Sarah, the OneTouch AI assistant, which answers questions from live CRM data and drafts renewal emails and proposals — with human approval required before anything reaches a client. I built the role-based access control, in-app notifications and record sharing, team group chat with multiple assignees, and record search and duplication, along with the Docker and Railway deployment setup. Built with React, TypeScript, NestJS, GraphQL, PostgreSQL, and Redis."
+    },
+    {
+        title: "Production Web Platform – Solo Full-Stack + DevOps",
+        images: [],
+        description: "A live production web platform I built and operate end-to-end. Provisioned and hardened a DigitalOcean Ubuntu server (keys-only SSH, ufw, fail2ban), served over HTTPS with Caddy and Let's Encrypt behind Cloudflare DNS and WAF. Built a server-side data pipeline with Supabase Edge Functions and Python sync scripts that ingest live data from external APIs across 6 sports on a cron schedule, upserting into tier-gated Supabase tables. Authentication and subscriptions use Supabase Auth, PostgreSQL Row-Level Security, and signature-verified Stripe webhooks. Includes technical SEO, security audits (git history secret scanning, deploy hardening), and a one-command deploy pipeline."
+    },
+    {
+        title: "Spotter – FMCSA Trip Planner",
+        images: [],
+        description: "A full-stack hours-of-service trip planner built with Django and React/TypeScript. Encodes US federal trucking regulations (49 CFR Part 395) into a pure-Python rules engine, with truck-legal routing via OpenRouteService, interactive maps with Leaflet, OSM parking candidates at forced stops, and auto-generated per-day DOT log sheets in SVG. Shipped with 174 passing automated tests (pytest). Route payload cut 94% via RDP simplification, plan latency during provider outages reduced from 43.6s to 6.8s with a circuit breaker."
+    },
+    {
+        title: "Capstone Project – IoT Avocado Freshness Detection",
         images: [avocado, avocado2, avocado3, avocado4],
         description: "Avocado is a smart application that connects with Bluetooth devices to receive and display real-time sensor data. I developed the full stack of the application, from the user interface to the Bluetooth integration, ensuring a seamless and interactive experience. This project provided hands-on experience with hardware-software interaction, live data handling, and end-to-end application development."
     },
@@ -29,15 +49,5 @@ export const projects = [
         title: "CTU SportsHub",
         images: [ctusportshub1, ctusportshub2, ctusportshub3, ctusportshub4, ctusportshub5],
         description: "CTU SportsHub is a sports management system built for CTU Danao to organize and track tournaments. It features tournament creation with single elimination brackets, live scoring, team management, and game scheduling. This project streamlined the school's sports event management and gave me experience building real-time data-driven applications."
-    },
-    {
-        title: "AILEEN – Outbound Caller Platform",
-        images: [],
-        description: "AILEEN is an AI-powered outbound calling and lead generation platform built for a financial advisory firm. The application features a Small Business Hunter that sources leads from Google Maps, automated retrieval and classification of Department of Labor Form 5500 filings to identify underperforming retirement plans, and an integrated calling dashboard powered by Twilio to connect advisors with prospective clients. Built with Vite and Python, the platform streamlines the full prospecting pipeline — from lead discovery to outreach — enabling advisors to efficiently grow their client base."
-    },
-    {
-        title: "OneTouch CRM – AI-Powered Salesforce Replacement",
-        images: [],
-        description: "OneTouch CRM is a self-hosted, AI-first CRM built on Twenty, the open-source alternative to Salesforce, developed to replace the company's Salesforce subscription. It manages companies, contacts, and deal pipelines with contract files, notes, and automated 90/60/30-day renewal reminders, plus Microsoft 365 email, calendar, and single sign-on. At its center is Sarah, the OneTouch AI assistant, which answers questions from live CRM data and drafts renewal emails and proposals — with human approval required before anything reaches a client. I built the role-based access control, in-app notifications and record sharing, team group chat with multiple assignees, and record search and duplication, along with the Docker and Railway deployment setup. Built with React, TypeScript, NestJS, GraphQL, PostgreSQL, and Redis."
     },
 ]
