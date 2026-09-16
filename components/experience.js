@@ -1,15 +1,17 @@
 const experiences = [
   {
-    role: "AI Engineering Intern",
+    role: "AI Developer / Full-Stack Developer",
     company: "OneTouch Networks",
+    period: "February - April 2026",
     description:
-      "Developed intelligent AI voice agents using OpenAI Agents SDK and LLMs to deliver natural conversational experiences, and architected full-stack solutions connecting frontend interfaces, backend APIs, and AI services for seamless voice-based automation systems. Also delivered OneTouch CRM, a self-hosted, AI-first CRM built on Twenty, the open-source alternative to Salesforce, developed to replace the company's Salesforce subscription. It manages companies, contacts, and deal pipelines with contract files, notes, and automated 90/60/30-day renewal reminders, plus Microsoft 365 email, calendar, and single sign-on. At its center is Sarah, the OneTouch AI assistant, which answers questions from live CRM data and drafts renewal emails and proposals — with human approval required before anything reaches a client. On the CRM, built the role-based access control, in-app notifications and record sharing, team group chat with multiple assignees, and record search and duplication, along with the Docker and Railway deployment setup, using React, TypeScript, NestJS, GraphQL, PostgreSQL, and Redis.",
+      "Built and owned AILEEN, an AI-powered outbound calling and lead generation platform for a US financial advisory firm, using the OpenAI Agents SDK and Twilio for automated voice conversations, with Google Maps lead sourcing and DOL Form 5500 classification. Collaborated on OneTouch CRM, a self-hosted Salesforce replacement built on Twenty: implemented role-based access control, in-app notifications, multi-assignee team chat, and record sharing, with Docker and Railway deployment (React, TypeScript, NestJS, GraphQL, PostgreSQL, Redis). Built RAG pipelines with LangChain and vector embeddings during AI training.",
   },
   {
-    role: "Frontend Development Intern",
+    role: "Frontend Developer",
     company: "Right Apps Inc.",
+    period: "June - August 2025",
     description:
-      "Worked on frontend UI development using Next.js, focusing on consistent light/dark themes, reusable components, user-friendly input fields, and clear dashboard navigation.",
+      "Built reusable Next.js components and responsive layouts, translating UI/UX designs into functional frontend interfaces in collaboration with design and dev teams. Focused on consistent light/dark theming and clear dashboard navigation.",
   },
 ];
 
@@ -32,6 +34,7 @@ export default function Experience() {
             <div>
               <p className="text-sm font-semibold text-neutral-950">{item.company}</p>
               <p className="mt-1 text-sm text-[var(--muted)]">{item.role}</p>
+              {item.period && <p className="mt-1 text-xs text-[var(--muted)]">{item.period}</p>}
             </div>
             <p className="text-base leading-8 text-neutral-700">{item.description}</p>
           </article>

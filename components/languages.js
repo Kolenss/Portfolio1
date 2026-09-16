@@ -1,36 +1,36 @@
-import c from "../assets/c.png";
 import html from "../assets/html.png";
 import css from "../assets/css.png";
 import js from "../assets/js.png";
-import cp from "../assets/c++.png";
 import nextjs from "../assets/next-js.png";
 import tailwind from "../assets/tailwind.png";
 import react from "../assets/react.png";
 import ts from "../assets/typescript.png";
+import python from "../assets/python.svg";
+import django from "../assets/django.svg";
 import sql from "../assets/sql.svg";
 import supabase from "../assets/supabase.svg";
 import docker from "../assets/docker.svg";
 import redis from "../assets/redis.svg";
-import n8n from "../assets/n8n.svg";
-import automation from "../assets/automation.svg";
+import cloudflare from "../assets/cloudflare.svg";
+import stripe from "../assets/stripe.svg";
 import Languagecard from "@/components/languageCard";
 
 const skills = [
-  ["HTML", html],
-  ["CSS", css],
-  ["JavaScript", js],
-  ["C", c],
-  ["C++", cp],
-  ["Next.js", nextjs],
-  ["Tailwind CSS", tailwind],
   ["React", react],
+  ["Next.js", nextjs],
   ["TypeScript", ts],
+  ["JavaScript", js],
+  ["Python", python],
+  ["Django", django],
+  ["Tailwind CSS", tailwind],
   ["SQL", sql],
   ["Supabase", supabase],
   ["Docker", docker],
+  ["Cloudflare", cloudflare],
+  ["Stripe", stripe],
   ["Redis", redis],
-  ["n8n", n8n],
-  ["Automation", automation],
+  ["HTML", html],
+  ["CSS", css],
 ];
 
 export default function Languages() {
