@@ -31,11 +31,6 @@ export const projects = [
         description: "A live production web platform I built and operate end-to-end. Provisioned and hardened a DigitalOcean Ubuntu server (keys-only SSH, ufw, fail2ban), served over HTTPS with Caddy and Let's Encrypt behind Cloudflare DNS and WAF. Built a server-side data pipeline with Supabase Edge Functions and Python sync scripts that ingest live data from external APIs across 6 sports on a cron schedule, upserting into tier-gated Supabase tables. Authentication and subscriptions use Supabase Auth, PostgreSQL Row-Level Security, and signature-verified Stripe webhooks. Includes technical SEO, security audits (git history secret scanning, deploy hardening), and a one-command deploy pipeline."
     },
     {
-        title: "Spotter – FMCSA Trip Planner",
-        images: [],
-        description: "A full-stack hours-of-service trip planner built with Django and React/TypeScript. Encodes US federal trucking regulations (49 CFR Part 395) into a pure-Python rules engine, with truck-legal routing via OpenRouteService, interactive maps with Leaflet, OSM parking candidates at forced stops, and auto-generated per-day DOT log sheets in SVG. Shipped with 174 passing automated tests (pytest). Route payload cut 94% via RDP simplification, plan latency during provider outages reduced from 43.6s to 6.8s with a circuit breaker."
-    },
-    {
         title: "Capstone Project – IoT Avocado Freshness Detection",
         images: [avocado, avocado2, avocado3, avocado4],
         description: "Avocado is a smart application that connects with Bluetooth devices to receive and display real-time sensor data. I developed the full stack of the application, from the user interface to the Bluetooth integration, ensuring a seamless and interactive experience. This project provided hands-on experience with hardware-software interaction, live data handling, and end-to-end application development."
