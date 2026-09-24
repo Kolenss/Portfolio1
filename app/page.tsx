@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, type Variants, useReducedMotion } from "framer-motion";
+import { motion, MotionConfig, type Variants } from "framer-motion";
 import Header from "@/components/header";
 import Info from "@/components/info";
 import Description from "@/components/description";
@@ -73,13 +73,15 @@ const sectionViewport = { once: true, amount: 0.18 };
 
 export default function Home() {
   const [open, setOpen] = useState(false);
-  const reducedMotion = useReducedMotion();
-  const revealInitial = reducedMotion ? false : "hidden";
-  const revealWhileInView = reducedMotion ? undefined : "visible";
-  const hoverLift = reducedMotion ? undefined : { y: -3, scale: 1.02 };
-  const tapPress = reducedMotion ? undefined : { scale: 0.98 };
+  // MotionConfig below drops movement for reduced-motion users. Branching on the
+  // preference here made server and client markup differ, leaving content at opacity 0.
+  const revealInitial = "hidden";
+  const revealWhileInView = "visible";
+  const hoverLift = { y: -3, scale: 1.02 };
+  const tapPress = { scale: 0.98 };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div id="top" className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       <SideBar open={open} handleClose={() => setOpen(false)} />
       <Header setOpen={() => setOpen(true)} />
@@ -88,7 +90,7 @@ export default function Home() {
         <motion.section
           className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-6xl gap-10 px-5 pb-20 md:grid-cols-[1.05fr_0.95fr] md:items-center"
           initial={revealInitial}
-          animate={reducedMotion ? undefined : "visible"}
+          animate="visible"
           variants={heroContainer}
         >
           <motion.div variants={heroContainer}>
@@ -133,13 +135,9 @@ export default function Home() {
 
           <motion.div className="mx-auto w-full max-w-md md:ml-auto" variants={fadeInUp}>
             <motion.div
-              animate={reducedMotion ? undefined : { y: [0, -10, 0], rotate: [0, 0.4, 0] }}
+              animate={{ y: [0, -10, 0], rotate: [0, 0.4, 0] }}
               className="rounded-[1.5rem] border border-[var(--line)] bg-white p-3 shadow-sm"
-              transition={
-                reducedMotion
-                  ? undefined
-                  : { duration: 6, ease: "easeInOut" as const, repeat: Infinity }
-              }
+              transition={{ duration: 6, ease: "easeInOut" as const, repeat: Infinity }}
             >
               <Image
                 src={barong}
@@ -184,16 +182,10 @@ export default function Home() {
           <Aboutme />
         </motion.section>
 
-        <motion.section
-          id="projects"
-          className="py-16 md:py-24"
-          initial={revealInitial}
-          whileInView={revealWhileInView}
-          viewport={sectionViewport}
-          variants={sectionReveal}
-        >
+        {/* Cards reveal on their own; a section-level filter would also trap the fixed video dialog. */}
+        <section id="projects" className="py-16 md:py-24">
           <Projects />
-        </motion.section>
+        </section>
 
         <motion.section
           id="contact"
@@ -212,5 +204,6 @@ export default function Home() {
 
       <Footer />
     </div>
+    </MotionConfig>
   );
 }

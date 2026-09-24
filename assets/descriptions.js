@@ -1,7 +1,3 @@
-import avocado from './avocado.jpg'
-import avocado2 from './a2.jpg'
-import avocado3 from './a3.jpg'
-import avocado4 from './a4.jpg'
 import blunchqt1 from './b1.jpg'
 import blunchqt2 from './b2.jpg'
 import blunchqt3 from './b3.jpg'
@@ -16,33 +12,51 @@ import ctusportshub5 from './s5.jpg'
 
 export const projects = [
     {
+        slug: "aileen",
         title: "AILEEN – Outbound Caller Platform",
-        images: [],
-        description: "AILEEN is an AI-powered outbound calling and lead generation platform built for a financial advisory firm. The application features a Small Business Hunter that sources leads from Google Maps, automated retrieval and classification of Department of Labor Form 5500 filings to identify underperforming retirement plans, and an integrated calling dashboard powered by Twilio to connect advisors with prospective clients. Built with Vite and Python, the platform streamlines the full prospecting pipeline — from lead discovery to outreach — enabling advisors to efficiently grow their client base."
+        role: "Client project · Built and owned",
+        video: { src: "/videos/aileen.mp4", poster: "/videos/aileen.jpg", duration: 21 },
+        description: "An AI outbound calling and lead generation platform for a US financial advisory firm. It sources small-business leads from Google Maps, classifies Department of Labor Form 5500 filings to find underperforming retirement plans, and connects advisors with prospects through a Twilio calling dashboard.",
+        stack: ["Python", "Vite", "OpenAI Agents SDK", "Twilio"],
     },
     {
+        slug: "onetouch-crm",
         title: "OneTouch CRM – AI-Powered Salesforce Replacement",
-        images: [],
-        description: "OneTouch CRM is a self-hosted, AI-first CRM built on Twenty, the open-source alternative to Salesforce, developed to replace the company's Salesforce subscription. It manages companies, contacts, and deal pipelines with contract files, notes, and automated 90/60/30-day renewal reminders, plus Microsoft 365 email, calendar, and single sign-on. At its center is Sarah, the OneTouch AI assistant, which answers questions from live CRM data and drafts renewal emails and proposals — with human approval required before anything reaches a client. I built the role-based access control, in-app notifications and record sharing, team group chat with multiple assignees, and record search and duplication, along with the Docker and Railway deployment setup. Built with React, TypeScript, NestJS, GraphQL, PostgreSQL, and Redis."
+        role: "Client project · Collaborator",
+        video: { src: "/videos/onetouch-crm.mp4", poster: "/videos/onetouch-crm.jpg", duration: 23 },
+        description: "A self-hosted, AI-first CRM on Twenty, built to replace the company's Salesforce subscription. I built role-based access control, in-app notifications, record sharing, team chat, and record search and duplication, plus the Docker and Railway deployment.",
+        stack: ["React", "TypeScript", "NestJS", "GraphQL", "PostgreSQL"],
     },
     {
+        slug: "production-platform",
         title: "Production Web Platform – Solo Full-Stack + DevOps",
-        images: [],
-        description: "A live production web platform I built and operate end-to-end. Provisioned and hardened a DigitalOcean Ubuntu server (keys-only SSH, ufw, fail2ban), served over HTTPS with Caddy and Let's Encrypt behind Cloudflare DNS and WAF. Built a server-side data pipeline with Supabase Edge Functions and Python sync scripts that ingest live data from external APIs across 6 sports on a cron schedule, upserting into tier-gated Supabase tables. Authentication and subscriptions use Supabase Auth, PostgreSQL Row-Level Security, and signature-verified Stripe webhooks. Includes technical SEO, security audits (git history secret scanning, deploy hardening), and a one-command deploy pipeline."
+        role: "Client project · Solo build",
+        video: { src: "/videos/production-platform.mp4", poster: "/videos/production-platform.jpg", duration: 23 },
+        description: "A live platform I built and run on my own. It sits on a hardened DigitalOcean server behind Caddy and Cloudflare, pulls live data for 6 sports through a scheduled Python and Supabase pipeline, and gates paid tiers with Row-Level Security and signature-verified Stripe webhooks.",
+        stack: ["Supabase", "PostgreSQL", "Python", "Stripe", "Cloudflare"],
     },
     {
+        slug: "avocado",
         title: "Capstone Project – IoT Avocado Freshness Detection",
-        images: [avocado, avocado2, avocado3, avocado4],
-        description: "Avocado is a smart application that connects with Bluetooth devices to receive and display real-time sensor data. I developed the full stack of the application, from the user interface to the Bluetooth integration, ensuring a seamless and interactive experience. This project provided hands-on experience with hardware-software interaction, live data handling, and end-to-end application development."
+        role: "Capstone project",
+        video: { src: "/videos/avocado.mp4", poster: "/videos/avocado.jpg", duration: 22 },
+        description: "An IoT freshness detector for avocados. A sensor node streams carbon dioxide, gas, humidity, and temperature readings over Bluetooth to a React Native app, which turns them into a ripeness score and a verdict. I built the app end to end, from the interface to the Bluetooth link.",
+        stack: ["React Native", "Bluetooth LE", "IoT sensors"],
     },
     {
+        slug: "blunchqt",
         title: "BlunchQT",
+        role: "Personal project",
         images: [blunchqt1, blunchqt2, blunchqt3, blunchqt4, blunchqt5],
-        description: "BlunchQT is a study guide and rewarding system, designed to make my partner's studying and learning more engaging and fun. It features a variety of rewards and a shop where you can redeem points for different prizes. Points are earned by taking tests and scoring well, and by completing topics — turning every study session into a rewarding experience."
+        description: "BlunchQT is a study guide and rewarding system, designed to make my partner's studying and learning more engaging and fun. It features a variety of rewards and a shop where you can redeem points for different prizes. Points are earned by taking tests and scoring well, and by completing topics — turning every study session into a rewarding experience.",
+        stack: ["Next.js", "TypeScript", "Tailwind CSS", "Nodemailer"],
     },
     {
+        slug: "ctu-sportshub",
         title: "CTU SportsHub",
+        role: "Full-stack web app",
         images: [ctusportshub1, ctusportshub2, ctusportshub3, ctusportshub4, ctusportshub5],
-        description: "CTU SportsHub is a sports management system built for CTU Danao to organize and track tournaments. It features tournament creation with single elimination brackets, live scoring, team management, and game scheduling. This project streamlined the school's sports event management and gave me experience building real-time data-driven applications."
+        description: "CTU SportsHub is a sports management system built for CTU Danao to organize and track tournaments. It features tournament creation with single elimination brackets, live scoring, team management, and game scheduling. This project streamlined the school's sports event management and gave me experience building real-time data-driven applications.",
+        stack: ["Next.js", "FastAPI", "Supabase"],
     },
 ]
