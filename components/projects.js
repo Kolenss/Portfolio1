@@ -29,6 +29,7 @@ export default function Projects() {
             slug={proj.slug}
             title={proj.title}
             role={proj.role}
+            link={proj.link}
             images={proj.images}
             projectimg={proj.image}
             video={proj.video}

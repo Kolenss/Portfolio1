@@ -39,6 +39,7 @@ export const projects = [
         slug: "avocado",
         title: "Capstone Project – IoT Avocado Freshness Detection",
         role: "Capstone project",
+        link: "https://avocado-web-zeta.vercel.app/",
         video: { src: "/videos/avocado.mp4", poster: "/videos/avocado.jpg", duration: 22 },
         description: "An IoT freshness detector for avocados. A sensor node streams carbon dioxide, gas, humidity, and temperature readings over Bluetooth to a React Native app, which turns them into a ripeness score and a verdict. I built the app end to end, from the interface to the Bluetooth link.",
         stack: ["React Native", "Bluetooth LE", "IoT sensors"],

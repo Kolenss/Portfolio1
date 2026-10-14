@@ -52,6 +52,16 @@ function ExpandIcon({ size = 12 }) {
   );
 }
 
+function ExternalLinkIcon({ size = 12 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  );
+}
+
 function PauseIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -312,7 +322,7 @@ function VideoModal({ layoutId, title, src, poster, onClose, initialFocusRef }) 
   );
 }
 
-function BragVideo({ slug, title, src, poster, duration }) {
+function BragVideo({ slug, title, src, poster, duration, link }) {
   const reduced = useReducedMotion();
   const isClient = useIsClient();
   const videoRef = useRef(null);
@@ -383,6 +393,81 @@ function BragVideo({ slug, title, src, poster, duration }) {
     setOpen(true);
   };
 
+  const triggerClassName =
+    "group/video absolute inset-0 block cursor-pointer rounded-xl outline-none transition-[scale,box-shadow] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)] data-[active=true]:scale-[1.03] data-[active=true]:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.45)]";
+
+  const preview = (
+    <motion.span
+      layoutId={layoutId}
+      transition={MORPH}
+      className="absolute inset-0 block overflow-hidden bg-neutral-900"
+      style={{ borderRadius: 12 }}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        tabIndex={-1}
+        aria-hidden="true"
+        onPlaying={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <Image
+        src={poster}
+        alt=""
+        fill
+        sizes="(min-width: 1024px) 620px, 100vw"
+        className={`object-cover transition-opacity duration-300 ease-out ${
+          playing ? "opacity-0" : "opacity-100"
+        }`}
+      />
+
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-black/45 to-transparent opacity-0 transition-opacity duration-300 group-data-[active=true]/video:opacity-100" />
+
+      <span className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm transition-[opacity,translate,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-data-[active=true]/video:translate-y-1 group-data-[active=true]/video:opacity-0 group-data-[active=true]/video:blur-[2px]">
+        <PlayIcon />
+        {formatDuration(duration)}
+      </span>
+      <span className="pointer-events-none absolute bottom-3 left-3 inline-flex translate-y-1 items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-neutral-950 opacity-0 blur-[2px] transition-[opacity,translate,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-data-[active=true]/video:translate-y-0 group-data-[active=true]/video:opacity-100 group-data-[active=true]/video:blur-none">
+        {link ? <ExternalLinkIcon /> : <ExpandIcon />}
+        {link ? "Visit live site" : "Click to expand"}
+      </span>
+
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 block h-[3px] bg-white/25 opacity-0 transition-opacity duration-200 group-data-[active=true]/video:opacity-100">
+        <span
+          ref={barRef}
+          className="block h-full origin-left bg-white"
+          style={{ transform: "scaleX(0)" }}
+        />
+      </span>
+    </motion.span>
+  );
+
+  // A project with a live site links straight to it; otherwise the click opens the video modal.
+  if (link) {
+    return (
+      <div className="relative aspect-video w-full">
+        <a
+          ref={triggerRef}
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          onPointerEnter={startPreview}
+          onPointerLeave={stopPreview}
+          data-active={active}
+          aria-label={`Visit the live ${title} site (opens in a new tab)`}
+          className={triggerClassName}
+        >
+          {preview}
+        </a>
+      </div>
+    );
+  }
+
   return (
     <div className="relative aspect-video w-full">
       <button
@@ -393,58 +478,9 @@ function BragVideo({ slug, title, src, poster, duration }) {
         onPointerLeave={stopPreview}
         data-active={active}
         aria-label={`Watch the ${title} video`}
-        className="group/video absolute inset-0 block cursor-pointer rounded-xl outline-none transition-[scale,box-shadow] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)] data-[active=true]:scale-[1.03] data-[active=true]:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.45)]"
+        className={triggerClassName}
       >
-        {!open && (
-          <motion.span
-            layoutId={layoutId}
-            transition={MORPH}
-            className="absolute inset-0 block overflow-hidden bg-neutral-900"
-            style={{ borderRadius: 12 }}
-          >
-            <video
-              ref={videoRef}
-              src={src}
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              tabIndex={-1}
-              aria-hidden="true"
-              onPlaying={() => setPlaying(true)}
-              onPause={() => setPlaying(false)}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <Image
-              src={poster}
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 620px, 100vw"
-              className={`object-cover transition-opacity duration-300 ease-out ${
-                playing ? "opacity-0" : "opacity-100"
-              }`}
-            />
-
-            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-black/45 to-transparent opacity-0 transition-opacity duration-300 group-data-[active=true]/video:opacity-100" />
-
-            <span className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm transition-[opacity,translate,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-data-[active=true]/video:translate-y-1 group-data-[active=true]/video:opacity-0 group-data-[active=true]/video:blur-[2px]">
-              <PlayIcon />
-              {formatDuration(duration)}
-            </span>
-            <span className="pointer-events-none absolute bottom-3 left-3 inline-flex translate-y-1 items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-neutral-950 opacity-0 blur-[2px] transition-[opacity,translate,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-data-[active=true]/video:translate-y-0 group-data-[active=true]/video:opacity-100 group-data-[active=true]/video:blur-none">
-              <ExpandIcon />
-              Click to expand
-            </span>
-
-            <span className="pointer-events-none absolute inset-x-0 bottom-0 block h-[3px] bg-white/25 opacity-0 transition-opacity duration-200 group-data-[active=true]/video:opacity-100">
-              <span
-                ref={barRef}
-                className="block h-full origin-left bg-white"
-                style={{ transform: "scaleX(0)" }}
-              />
-            </span>
-          </motion.span>
-        )}
+        {!open && preview}
       </button>
 
       {isClient &&
@@ -526,7 +562,7 @@ function ImageCarousel({ title, images }) {
   );
 }
 
-export default function Projectcard({ slug, title, role, images, projectimg, projectdesc, stack, video }) {
+export default function Projectcard({ slug, title, role, link, images, projectimg, projectdesc, stack, video }) {
   const allImages = images && images.length > 0 ? images : projectimg ? [projectimg] : [];
 
   return (
@@ -542,7 +578,7 @@ export default function Projectcard({ slug, title, role, images, projectimg, pro
         className="flex items-center rounded-t-[15px] bg-[var(--background)] p-4 lg:rounded-l-[15px] lg:rounded-tr-none"
       >
         {video ? (
-          <BragVideo slug={slug} title={title} {...video} />
+          <BragVideo slug={slug} title={title} link={link} {...video} />
         ) : allImages.length > 0 ? (
           <ImageCarousel title={title} images={allImages} />
         ) : null}
